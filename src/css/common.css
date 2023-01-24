@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  color: #212121;
+  line-height: 1.5;
+
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.timer {
+  display: flex;
+  gap: 30px;
+  font-size: 70px;
+  color: blue;
+}
+
+button {
+  background-color: blue;
+  display: block;
+  padding: 5px, 10px, 5px, 10px,;
+  font-size: 46px;
+  color: white;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+button:disabled {
+  background-color: #adadadec; 
+}
+
+#datetime-picker {
+  display: block;
+
+  font-size: 36px;
+ margin-left: auto;
+ margin-right: auto;
+  margin-bottom: 15px; 
+  
+}
+
+button.is-active {
+  background-color: green;
+}
+
+.timer {
+  display: flex;
+  margin-top: 150px;
+}
+
+.field:first-child {
+  margin-left: auto;
+}
+
+.field:last-child {
+  margin-right: auto;
+}
+
+.timer.is-active {
+  color: green;
+}
+
+.form {
+  text-align: center;
+}
+
+.form button {
+  display: block;
+}
+
+.form input {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: 10px;
+  margin-bottom: 40px;
+  height: 30px;
+}
+
+.form label {
+  font-size: 36px;
+  color: #c69c1fe3;
+  margin-left: 20px;
+}
