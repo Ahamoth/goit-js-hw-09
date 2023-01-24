@@ -1,35 +1,26 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
 const formEl = document.querySelector('.form');
-
 const formValues = {
   delay: null,
   step: null,
   amount: null,
 }
-
 formEl.addEventListener('submit', startMassage);
 formEl.addEventListener('input', addFormValues);
-
 function addFormValues(evt) {
   formValues[evt.target.name] = Number(evt.target.value);
 }
-
 function startMassage(evt) {
   evt.preventDefault();
   formEl.reset();
-
   const firstTimeout = formValues.delay;
   let intervalTimeout = formValues.step;
   const amountStep = formValues.amount;
-  
-
-  for (let i = 0; i < amountStep; i+=1) {
+    for (let i = 0; i < amountStep; i+=1) {
     let position = i + 1;
     let delay = firstTimeout + intervalTimeout * i;
   
-   
-    
+  
 setTimeout(() => {
 createPromise(position, delay)
 .then(({ position, delay }) => {
@@ -41,9 +32,7 @@ createPromise(position, delay)
      }, firstTimeout + intervalTimeout * i);
   }
 }
-  
-
-function createPromise(position, delay) { 
+  function createPromise(position, delay) { 
     const shouldResolve = Math.random() > 0.3;
     const promise = new Promise((res, rej) => {
       if (shouldResolve) {
@@ -52,6 +41,5 @@ function createPromise(position, delay) {
       rej({position, delay});
     }
   });
-    
-    return promise;
+        return promise;
   }

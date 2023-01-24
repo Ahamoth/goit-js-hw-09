@@ -1,19 +1,16 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
 const btnStart = document.querySelector('button[data-start]');
 const daysEl = document.querySelector('span[data-days]');
 const hoursEl = document.querySelector('span[data-hours]');
 const minutesEl = document.querySelector('span[data-minutes]');
 const secondsEl = document.querySelector('span[data-seconds]');
 const divEl = document.querySelector('.timer');
-
 let timerDate = null;
 let nowTime = null;
 let timeToEnd = null;
 let timeId = null;
-
 const options = {
     enableTime: true,
     time_24hr: true,
@@ -35,13 +32,9 @@ const options = {
         divEl.classList.remove('is-active');
     }
   };
-
 btnStart.disabled = true;
-
 flatpickr('#datetime-picker', options);
-
 btnStart.addEventListener('click', onStartTimer);
-
 function onStartTimer() {
     nowTime = new Date();
     if (timerDate - nowTime < 0) {
@@ -52,15 +45,13 @@ function onStartTimer() {
        divEl.classList.add('is-active');
     }
 }
-
 function convertMs(ms) {
     // Number of milliseconds per unit of time
     const second = 1000;
     const minute = second * 60;
     const hour = minute * 60;
     const day = hour * 24;
-  
-    // Remaining days
+      // Remaining days
     const days = Math.floor(ms / day);
     // Remaining hours
     const hours = Math.floor((ms % day) / hour);
@@ -71,7 +62,6 @@ function convertMs(ms) {
   
     return { days, hours, minutes, seconds };
   }
-
 function startingTimer() {
     nowTime = new Date();
         timeToEnd = timerDate - nowTime;
@@ -93,7 +83,6 @@ timeId = setInterval(() => {
         }
     }, 1000);
   }
-  
-function addLeadingZero(value) {
+  function addLeadingZero(value) {
     return String(value).padStart(2, '0');
   }
